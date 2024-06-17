@@ -23,7 +23,7 @@ DEVICE+=$(lsblk -n -o NAME | grep -E '^sd[c,d]$')
 
 # Verifica se il login è riuscito (0 se è andato a buon fine)
 if [ $login_status -ne 0 ]; then
-    echo "Errore nella connessione al server iSCSIa alle $(date +"%d-%m-%Y %H:%M")"
+    echo "Errore nella connessione al server iSCSI alle $(date +"%d-%m-%Y %H:%M")"
     exit 1
 else 
     # Mount sulla partizione ISCSI
