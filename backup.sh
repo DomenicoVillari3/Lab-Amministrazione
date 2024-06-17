@@ -11,7 +11,7 @@ sudo iscsiadm --mode node --targetname $ISCSI_TARGET --portal $ISCSI_IP --logout
 
 # Login  iSCSI
 sudo iscsiadm --mode node --targetname $ISCSI_TARGET --portal $ISCSI_IP --login > /dev/null 2>&1
-#recupera statop di ritorno dell'ultimo comando
+#recupera stato di ritorno dell'ultimo comando
 login_status=$?
 sleep 3
 
