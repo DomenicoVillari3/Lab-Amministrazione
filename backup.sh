@@ -2,15 +2,15 @@
 
 # Var utili 
 ISCSI_TARGET="iqn.2024-01.example.com:lun1" 
-ISCSI_PORTAL="192.168.128.232" # ip tgt
+ISCSI_IP="192.168.128.232" # ip tgt
 MOUNT_POINT="/mnt"
 CONFIG_FILE="/etc/rsnapshot.conf"
 
 # Logout da iSCSI con reindirizzamento su stderr
-sudo iscsiadm --mode node --targetname $ISCSI_TARGET --portal $ISCSI_PORTAL --logout > /dev/null 2>&1
+sudo iscsiadm --mode node --targetname $ISCSI_TARGET --portal $ISCSI_IP --logout > /dev/null 2>&1
 
 # Login  iSCSI
-sudo iscsiadm --mode node --targetname $ISCSI_TARGET --portal $ISCSI_PORTAL --login > /dev/null 2>&1
+sudo iscsiadm --mode node --targetname $ISCSI_TARGET --portal $ISCSI_IP --login > /dev/null 2>&1
 #recupera statop di ritorno dell'ultimo comando
 login_status=$?
 sleep 3
@@ -42,7 +42,7 @@ else
 
         # Umount
         sudo umount $MOUNT_POINT
-        sudo iscsiadm --mode node --targetname $ISCSI_TARGET --portal $ISCSI_PORTAL --logout > /dev/null 2>&1
+        sudo iscsiadm --mode node --targetname $ISCSI_TARGET --portal $ISCSI_IP --logout > /dev/null 2>&1
 
         echo "Backup terminato il $(date +"%d-%m-%Y %H:%M")"
         
