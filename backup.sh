@@ -17,7 +17,7 @@ sleep 3
 
 #definizione del disco (sdc o sdd) 
 DEVICE="/dev/"
-DEVICE+=$(lsblk -n -o NAME | grep -E '^sd[c,d]$')
+DEVICE+=$(lsblk -n --output NAME | grep -E '^sd[c,d]$')
 
 
 
